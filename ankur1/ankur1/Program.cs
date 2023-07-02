@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System.Diagnostics;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 public class Program
@@ -35,5 +36,66 @@ public class Program
         {       
         Console.WriteLine("login fail");
         }
+
+        // identify Administration and click 
+        IWebElement AdministrationText = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
+        AdministrationText.Click();
+
+        // identify Time & Materials and click
+        IWebElement TMText = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
+        TMText.Click();
+
+        // Identify Create New Button and click
+        IWebElement CreateNewButton = driver.FindElement(By.XPath("//*[@id=\"container\"]/p/a"));
+        CreateNewButton.Click();
+
+        // click on TypeCode
+        IWebElement dropdownlist = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[1]"));
+        dropdownlist.Click();
+
+
+        IWebElement timeoption = driver.FindElement(By.XPath("//*[@id=\"TypeCode_listbox\"]"));
+        timeoption.Click();
+
+
+
+        //click on Code
+
+        IWebElement CodeTextbox = driver.FindElement(By.Id("Code"));
+        CodeTextbox.SendKeys("Ankur1");
+
+
+        // click on Description 
+        IWebElement DescriptionTextbox = driver.FindElement(By.Id("Description"));
+        DescriptionTextbox.SendKeys("QWERTY");
+
+        //click on Price per unit
+        IWebElement PriceTag = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[1]"));
+        PriceTag.Click();
+
+        IWebElement PriceTextbox = driver.FindElement(By.Id("Price"));
+        PriceTextbox.SendKeys("11");
+
+        // click on Save button
+        IWebElement SaveButton = driver.FindElement(By.Id("SaveButton"));
+        SaveButton.Click();
+        Thread.Sleep(3500);
+
+        //test entry created
+        IWebElement lastpageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+        lastpageButton.Click();
+        Thread.Sleep(6000);
+
+        IWebElement lastentry = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+        if (lastentry.Text == "Ankur1")
+        {
+            Console.WriteLine("Entry successfully created");
+        }
+        else
+        {
+            Console.WriteLine("Entry not created ");
+        }
     }
 }
+
+
