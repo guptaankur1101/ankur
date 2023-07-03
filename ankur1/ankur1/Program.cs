@@ -44,8 +44,10 @@ public class Program
         // identify Time & Materials and click
         IWebElement TMText = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
         TMText.Click();
-        
-         // Identify Create New Button and click
+        Thread.Sleep(3000);
+
+
+        /* // Identify Create New Button and click
         IWebElement CreateNewButton = driver.FindElement(By.XPath("//*[@id=\"container\"]/p/a"));
         CreateNewButton.Click();
 
@@ -82,6 +84,7 @@ public class Program
         Thread.Sleep(3500);
 
         //test entry created
+        
         IWebElement lastpageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
         lastpageButton.Click();
         Thread.Sleep(6000);
@@ -95,8 +98,22 @@ public class Program
         {
             Console.WriteLine("Entry not created ");
         } 
+        */
+        // create delete functionality
         
-        // create edit functionality
+        IWebElement DeleteButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[1]/td[5]/a[2]"));
+        DeleteButton.Click();
+        Thread.Sleep(3000);
+
+        IAlert confirmationAlert = driver.SwitchTo().Alert();
+        confirmationAlert.Accept();
+        Thread.Sleep(3000);
+
+        Console.WriteLine("Entry is deleted");
+     
+
+       
+       
 
 
     }
