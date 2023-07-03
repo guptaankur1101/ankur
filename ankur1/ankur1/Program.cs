@@ -44,8 +44,8 @@ public class Program
         // identify Time & Materials and click
         IWebElement TMText = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a"));
         TMText.Click();
-
-        // Identify Create New Button and click
+        
+         // Identify Create New Button and click
         IWebElement CreateNewButton = driver.FindElement(By.XPath("//*[@id=\"container\"]/p/a"));
         CreateNewButton.Click();
 
@@ -54,7 +54,7 @@ public class Program
         dropdownlist.Click();
 
 
-        IWebElement timeoption = driver.FindElement(By.XPath("//*[@id=\"TypeCode_listbox\"]"));
+        IWebElement timeoption = driver.FindElement(By.XPath("//*[@id=\"TypeCode_listbox\"]/li[2]"));
         timeoption.Click();
 
 
@@ -94,7 +94,11 @@ public class Program
         else
         {
             Console.WriteLine("Entry not created ");
-        }
+        } 
+        
+        // create edit functionality
+
+
     }
 }
 
