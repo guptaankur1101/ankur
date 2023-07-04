@@ -118,6 +118,7 @@ public class Program
         EditButton.Click();
 
         IWebElement DescriptionTextbox = driver.FindElement(By.Id("Description"));
+        DescriptionTextbox.Clear();
         DescriptionTextbox.SendKeys("QWERTY");
 
         IWebElement SaveButton = driver.FindElement(By.Id("SaveButton"));
