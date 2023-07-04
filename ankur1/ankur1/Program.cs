@@ -101,7 +101,7 @@ public class Program
         */
         // create delete functionality
         
-        IWebElement DeleteButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[1]/td[5]/a[2]"));
+        /*IWebElement DeleteButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[1]/td[5]/a[2]"));
         DeleteButton.Click();
         Thread.Sleep(3000);
 
@@ -109,13 +109,21 @@ public class Program
         confirmationAlert.Accept();
         Thread.Sleep(3000);
 
-        Console.WriteLine("Entry is deleted");
-     
-
-       
-       
+        Console.WriteLine("Entry is deleted");*/
 
 
+        // edit functionality
+
+        IWebElement EditButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[2]/td[5]/a[1]"));
+        EditButton.Click();
+
+        IWebElement DescriptionTextbox = driver.FindElement(By.Id("Description"));
+        DescriptionTextbox.SendKeys("QWERTY");
+
+        IWebElement SaveButton = driver.FindElement(By.Id("SaveButton"));
+        SaveButton.Click();
+
+        Console.WriteLine("Entry is edited successfully");
     }
 }
 
