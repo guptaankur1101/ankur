@@ -55,19 +55,7 @@ public class Program
 
         //test entry created
         
-        IWebElement lastpageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
-        lastpageButton.Click();
-        Thread.Sleep(6000);
-
-        IWebElement lastentry = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
-        if (lastentry.Text == "Ankur1")
-        {
-            Console.WriteLine("Entry successfully created");
-        }
-        else
-        {
-            Console.WriteLine("Entry not created ");
-        } 
+       
         
        
 

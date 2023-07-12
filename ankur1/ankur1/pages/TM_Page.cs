@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace ankur1.pages
@@ -46,6 +47,21 @@ namespace ankur1.pages
             IWebElement SaveButton = driver.FindElement(By.Id("SaveButton"));
             SaveButton.Click();
             Thread.Sleep(3500);
+            // to test create entry
+            IWebElement lastpageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+            lastpageButton.Click();
+            Thread.Sleep(6000);
+
+            IWebElement lastentry = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+            if (lastentry.Text == "Ankur1")
+            {
+                Assert.Pass("Entry successfully created");
+            }
+            else
+            {
+                Assert.Fail("Entry not created ");
+                //in place of if and else--- Assert.That(lastentry.Text =="Ankur1","Entry successfully created");
+            }
         }
         public void EditTimeRecord(IWebDriver driver)
         {
